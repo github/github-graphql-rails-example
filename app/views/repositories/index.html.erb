@@ -1,0 +1,9 @@
+<div>
+  <% viewer["repositories"]["edges"].each do |edge| %>
+    <h3>
+      <a href="<%= repository_path(edge["node"]["id"]) %>">
+        <%= edge["node"]["owner"]["login"] %>/<%= edge["node"]["name"] %>
+      </a>
+    </h3>
+  <% end %>
+</div>
