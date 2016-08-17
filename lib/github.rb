@@ -3,7 +3,7 @@ require "net/http"
 require "uri"
 
 module GitHub
-  URI = URI.parse("https://api.github.com/staff/graphql")
+  URI = URI.parse("https://api.github.com/graphql")
   Token = ENV.fetch("GITHUB_API_TOKEN")
 
   def self.fetch(query, variables = {})
