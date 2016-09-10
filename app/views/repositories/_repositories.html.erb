@@ -1,0 +1,31 @@
+<% repositories.each_node do |repository| %>
+  <li class="list-group-item">
+    <span class="star-badge">
+      <%= repository.stargazers.total_count %>
+      <span class="octicon octicon-star"></span>
+    </span>
+
+    <% if repository.is_fork? %>
+      <span class="octicon octicon-repo-forked"></span>
+    <% elsif repository.is_private? %>
+      <span class="octicon octicon-lock"></span>
+    <% elsif repository.is_mirror? %>
+      <span class="octicon octicon-mirror"></span>
+    <% else %>
+      <span class="octicon octicon-repo"></span>
+    <% end %>
+
+    <a href="<%= repository_path(repository.id) %>">
+      <%= repository.owner.login %>/<%= repository.name %>
+    </a>
+  </li>
+<% end %>
+
+<% if repositories.page_info.has_next_page? %>
+  <li class="list-group-item show-more">
+    <a onclick="loadMoreRepositories(event);" href="<%= repositories_path(after: repositories.edges.last.cursor) %>">
+      Show more repositories...
+    </a>
+    <span class="octicon octicon-sync spinner"></span>
+  </li>
+<% end %>

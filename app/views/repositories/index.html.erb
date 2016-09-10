@@ -1,0 +1,10 @@
+<div class="repositories">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong>Your repositories</strong>
+      <span class="badge"><%= viewer.repositories.total_count %></span>
+    </li>
+
+    <%= render "repositories/repositories", repositories: viewer.repositories %>
+  </ul>
+</div>

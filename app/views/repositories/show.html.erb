@@ -1,0 +1,62 @@
+<div class="header clearfix">
+  <ul class="nav nav-pills pull-right">
+    <li role="presentation" class="active">
+      <a href="#">
+        <span class="octicon octicon-code"></span>
+        Code
+      </a>
+    </li>
+    <% if repository.has_issues_enabled? %>
+      <li role="presentation">
+        <a href="#">
+          <span class="octicon octicon-issue-opened"></span>
+          Issues
+          <span class="badge">0</span> <%# TODO: repository.issues.total_count %>
+        </a>
+      </li>
+    <% end %>
+    <li role="presentation">
+      <a href="#">
+        <span class="octicon octicon-git-pull-request"></span>
+        Pull requests
+        <span class="badge">0</span> <%# TODO: repository.pull_requests.total_count %>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#">
+        <span class="octicon octicon-pulse"></span>
+        Pulse
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#">
+        <span class="octicon octicon-graph"></span>
+        Graphs
+      </a>
+    </li>
+  </ul>
+
+  <h3 class="text-muted">
+    <a href="<%= repositories_path %>"><%= repository.owner.login %></a>
+    /
+    <a href="<%= repository_path(repository.id) %>"><%= repository.name %></a>
+  </h3>
+</div>
+
+<hr>
+
+<div class="jumbotron">
+  <h1><%= repository.name %></h1>
+
+  <% if repository.description.present? %>
+    <p><%= repository.description %></p>
+  <% end %>
+
+  <p>
+    <% if repository.homepage_url.present? %>
+      <a class="btn btn-primary btn-lg" href="<%= repository.homepage_url %>" role="button">Homepage</a>
+    <% end %>
+
+    <a class="btn btn-primary btn-lg" href="https://github.com/<%= repository.owner.login %>/<%= repository.name %>" role="button">View on GitHub</a>
+  </p>
+</div>
