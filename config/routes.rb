@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  resources :repositories
+  resources :repositories do
+    get "more", on: :collection
+  end
   get "/", to: redirect("/repositories")
 end
