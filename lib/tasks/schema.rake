@@ -8,10 +8,12 @@ namespace :schema do
   task :update => [:clobber, "db/schema.json"]
 
   task :clobber do
-    rm "db/schema.json"
+    rm_f "db/schema.json"
   end
 
-  file "db/schema.json" => :environment do
+  directory "db"
+
+  file "db/schema.json" => ["db", :environment] do
     document = GraphQL.parse(GraphQL::Introspection::INTROSPECTION_QUERY)
     # TODO: Access token shouldn't be required to fetch schema
     context = { access_token: Rails.application.secrets.github_access_token }
