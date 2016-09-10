@@ -1,0 +1,18 @@
+<%graphql
+  fragment Repository on Repository {
+    isFork
+    isMirror
+    isPrivate
+  }
+%>
+<% repository = Views::Repositories::Icon::Repository.new(repository) %>
+
+<% if repository.is_fork? %>
+  <span class="octicon octicon-repo-forked"></span>
+<% elsif repository.is_private? %>
+  <span class="octicon octicon-lock"></span>
+<% elsif repository.is_mirror? %>
+  <span class="octicon octicon-mirror"></span>
+<% else %>
+  <span class="octicon octicon-repo"></span>
+<% end %>

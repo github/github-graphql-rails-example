@@ -1,0 +1,36 @@
+<ul class="nav nav-pills pull-right">
+  <li role="presentation" class="active">
+    <a href="#">
+      <span class="octicon octicon-code"></span>
+      Code
+    </a>
+  </li>
+  <% if repository.has_issues_enabled? %>
+    <li role="presentation">
+      <a href="#">
+        <span class="octicon octicon-issue-opened"></span>
+        Issues
+        <span class="badge">0</span> <%# TODO: repository.issues.total_count %>
+      </a>
+    </li>
+  <% end %>
+  <li role="presentation">
+    <a href="#">
+      <span class="octicon octicon-git-pull-request"></span>
+      Pull requests
+      <span class="badge">0</span> <%# TODO: repository.pull_requests.total_count %>
+    </a>
+  </li>
+  <li role="presentation">
+    <a href="#">
+      <span class="octicon octicon-pulse"></span>
+      Pulse
+    </a>
+  </li>
+  <li role="presentation">
+    <a href="#">
+      <span class="octicon octicon-graph"></span>
+      Graphs
+    </a>
+  </li>
+</ul>

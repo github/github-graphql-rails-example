@@ -1,3 +1,13 @@
+<%graphql
+  fragment Viewer on User {
+    repositories(first: 10) {
+      totalCount
+      ...Views::Repositories::Repositories::RepositoryConnection
+    }
+  }
+%>
+<% viewer = Views::Repositories::Index::Viewer.new(viewer) %>
+
 <div class="repositories">
   <ul class="list-group">
     <li class="list-group-item">
