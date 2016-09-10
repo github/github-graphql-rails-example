@@ -18,7 +18,7 @@ class RepositoriesController < ApplicationController
               isFork
               isMirror
               isPrivate
-              stargazers(first: 1) {
+              stargazers {
                 totalCount
               }
             }
