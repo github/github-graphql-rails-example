@@ -16,6 +16,7 @@ module GitHub
     #
     # document - A parsed GraphQL::Language::Nodes::Document object of the query
     #            string.
+    # operation_name - A String operation name to execute from the document.
     # variables - A Hash of variables to use while executing the document
     #             operation.
     # context - A Hash of application specific context information passed to
@@ -23,13 +24,14 @@ module GitHub
     #           OAuth tokens to be passed along.
     #
     # Returns a Hash GraphQL response, { "data" => ..., "errors" => ... }.
-    def self.call(document, variables, context)
+    def self.call(document, operation_name, variables, context)
       http = Net::HTTP.new(QUERY_URI.host, QUERY_URI.port)
       http.use_ssl = true
 
       request = Net::HTTP::Post.new(QUERY_URI.request_uri)
       request["Authorization"] = "Bearer #{context[:access_token]}" if context[:access_token]
 
+      # TODO: GitHub's /graphql endpoint doesn't accept operation names
       request.body = JSON.generate({
         "query" => document.to_query_string,
         "variables" => JSON.generate(variables)
