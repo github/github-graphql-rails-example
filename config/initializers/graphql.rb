@@ -1,25 +1,30 @@
-require "github/http_adapter"
-
-# Load this cached file from the FS. The schema should periodically be
-# refetched via `rake schema:update`.
-GitHub::Application.config.graphql.schema = GraphQL::Schema::Loader.load(JSON.parse(File.read("#{Rails.root}/db/schema.json")))
-
-# The GraphQL::Client configured with GitHub's schema and network adapter.
-#
-# GraphQL::Client provides two main APIs:
-#
-#   # Parse GraphQL query string and return a parsed definition.
-#   VersionQuery = GitHub::Client.parse("query { version }")
-#
-#   # Execute query definition
-#   data = GitHub::Client.query(VersionQuery)
-#   data.version #=> 42
-#
-GitHub::Application.config.graphql.client = GraphQL::Client.new(
-  schema: GitHub::Application.config.graphql.schema,
-  fetch: GitHub::HTTPAdapter
-)
+require "graphql/client/http"
 
 module GitHub
-  Client = GitHub::Application.config.graphql.client
+  HTTPAdapter = GraphQL::Client::HTTP.new("https://api.github.com/graphql") do
+    def headers(query)
+      token = query.context[:access_token] || GitHub::Application.secrets.github_access_token
+      {
+        "Authorization" => "Bearer #{token}"
+      }
+    end
+  end
+
+  # The GraphQL::Client configured with GitHub's schema and network adapter.
+  #
+  # GraphQL::Client provides two main APIs:
+  #
+  #   # Parse GraphQL query string and return a parsed definition.
+  #   VersionQuery = GitHub::Client.parse("query { version }")
+  #
+  #   # Execute query definition
+  #   data = GitHub::Client.query(VersionQuery)
+  #   data.version #=> 42
+  #
+  Client = GraphQL::Client.new(
+    schema: GitHub::Application.root.join("db/schema.json").to_s,
+    fetch: GitHub::HTTPAdapter
+  )
 end
+
+GitHub::Application.config.graphql.client = GitHub::Client

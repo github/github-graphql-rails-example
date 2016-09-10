@@ -14,10 +14,8 @@ namespace :schema do
   directory "db"
 
   file "db/schema.json" => ["db", :environment] do
-    document = GraphQL.parse(GraphQL::Introspection::INTROSPECTION_QUERY)
-    # TODO: Access token shouldn't be required to fetch schema
-    context = { access_token: Rails.application.secrets.github_access_token }
-    schema = GitHub::HTTPAdapter.call(document, {}, context)
-    File.open("db/schema.json", 'w') { |f| f.write(JSON.pretty_generate(schema)) }
+    File.open("db/schema.json", 'w') do |f|
+      f.write(JSON.pretty_generate(GitHub::Client.fetch_schema))
+    end
   end
 end

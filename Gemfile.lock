@@ -45,7 +45,7 @@ GEM
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     graphql (0.18.10)
-    graphql-client (0.0.17)
+    graphql-client (0.0.18)
       actionpack (>= 3.0, < 6.0)
       activesupport (>= 3.0, < 6.0)
       graphql (~> 0.18)
@@ -112,7 +112,7 @@ PLATFORMS
 
 DEPENDENCIES
   graphql (= 0.18.10)
-  graphql-client (= 0.0.17)
+  graphql-client (= 0.0.18)
   rails (~> 5.0.0)
 
 BUNDLED WITH
