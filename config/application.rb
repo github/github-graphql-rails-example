@@ -13,8 +13,8 @@ module GitHub
   end
 
   HTTPAdapter = GraphQL::Client::HTTP.new("https://api.github.com/graphql") do
-    def headers(query)
-      token = query.context[:access_token] || Application.secrets.github_access_token
+    def headers(context)
+      token = context[:access_token] || Application.secrets.github_access_token
       {
         "Authorization" => "Bearer #{token}"
       }
@@ -23,7 +23,7 @@ module GitHub
 
   Client = GraphQL::Client.new(
     schema: Application.root.join("db/schema.json").to_s,
-    fetch: HTTPAdapter
+    execute: HTTPAdapter
   )
   Application.config.graphql.client = Client
 end
