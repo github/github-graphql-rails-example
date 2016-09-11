@@ -5,7 +5,7 @@ namespace :schema do
   # An offline copy of the schema allows queries to be typed checked statically
   # before even sending a request.
   desc "Update GitHub GraphQL schema"
-  task :update => [:clobber, "db/schema.json"]
+  task :update => [:environment, :clobber, "db/schema.json"]
 
   task :clobber do
     rm_f "db/schema.json"
