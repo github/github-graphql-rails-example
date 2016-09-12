@@ -2,6 +2,8 @@
 
 Demonstrates how to use the [`graphql-client gem`](http://github.com/github/graphql-client) to build a Rails web view against the [GitHub GraphQL API](https://developer.github.com/).
 
+<img width="365" src="https://cloud.githubusercontent.com/assets/137/18425026/a9929d7a-78f0-11e6-9fd4-f478470ad10b.png">
+
 ## Setup
 
 First, you'll need a [GitHub API access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use) to make GraphQL API requests. This should be set as a `GITHUB_ACCESS_TOKEN` environment variable as configured in [config/secrets.yml](https://github.com/github/github-graphql-rails-example/blob/master/config/secrets.yml).
