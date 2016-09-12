@@ -21,11 +21,7 @@ class ApplicationController < ActionController::Base
       when GraphQL::Client::SuccessfulResponse
         response.data
       when GraphQL::Client::FailedResponse
-        # TODO: Just raise the first error from the response.
-        # It'd be neat if the errors Array was actually an Errors collection
-        # that extended StandardError so we could just `raise response.errors`
-        # here.
-        raise response.errors.first
+        raise response.errors
       end
     end
 
