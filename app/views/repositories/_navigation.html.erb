@@ -1,3 +1,17 @@
+<%graphql
+  fragment Repository on Repository {
+    hasIssuesEnabled
+    # TODO: These aren't available yet
+    # issues {
+    #   totalCount
+    # }
+    # pullRequests {
+    #   totalCount
+    # }
+  }
+%>
+<% repository = Views::Repositories::Navigation::Repository.new(repository) %>
+
 <ul class="nav nav-pills pull-right">
   <li role="presentation" class="active">
     <a href="#">
@@ -5,6 +19,7 @@
       Code
     </a>
   </li>
+  <%# NOTE: has_issues_enabled is snake case here. We can also include an optional `?` %>
   <% if repository.has_issues_enabled? %>
     <li role="presentation">
       <a href="#">

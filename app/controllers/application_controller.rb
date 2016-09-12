@@ -12,8 +12,7 @@ class ApplicationController < ActionController::Base
     # variables - Optional set of variables to use during the operation.
     #             (default: {})
     #
-    # Returns a structured query result or raises if the request failed with no
-    # useful data.
+    # Returns a structured query result or raises if the request failed.
     def query(definition, variables = {})
       response = GitHub::Client.query(definition, variables: variables, context: client_context)
 

@@ -1,18 +1,36 @@
 <%graphql
+  # Connection types are similar to ActiveRecord associations. Connections
+  # always expose "edges" and "pageInfo". "edges" are the items in the
+  # collection and "pageInfo" is pagination related metadata.
   fragment RepositoryConnection on RepositoryConnection {
+    # edges returns an Array, however it doesn't return an Array of
+    # Repositories. Instead its a RepositoryEdge that has a node that is a
+    # Repository. Sorry, for all the indirection.
     edges {
-      cursor
+      # node is the Repository itself
       node {
         ...Views::Repositories::ListItem::Repository
       }
+
+      # Cursor is an opaque identifier that lets use fetch items before or
+      # after this repository in this collection. To fetch the next 10 items,
+      # we'll want the last item's cursor.
+      cursor
     }
+
+    # Pagination related metadata
     pageInfo {
       hasNextPage
+      # hasPreviousPage can also be checked
     }
   }
 %>
 <% repositories = Views::Repositories::Repositories::RepositoryConnection.new(repositories) %>
 
+<%#
+  We could enumerate repositories.edges.each { |edge| edge.node }, but each_node
+  provides a handy enumerator to get each repository.
+%>
 <% repositories.each_node do |repository| %>
   <%= render "repositories/list_item", repository: repository %>
 <% end %>
