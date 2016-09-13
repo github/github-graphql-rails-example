@@ -1,10 +1,8 @@
 # GitHub GraphQL Rails example application
 
-Demonstrates how to use the [`graphql-client gem`](http://github.com/github/graphql-client) to build a Rails web view against the [GitHub GraphQL API](https://developer.github.com/).
+Demonstrates how to use the [`graphql-client`](http://github.com/github/graphql-client) gem to build a simple repository listing web view against the [GitHub GraphQL API](https://developer.github.com/).
 
 <img width="365" src="https://cloud.githubusercontent.com/assets/137/18425026/a9929d7a-78f0-11e6-9fd4-f478470ad10b.png">
-
-This app implements a list of your repositories and a simplified repository show page.
 
 The application structure is setup like a typical Rails app using controllers, views and routes with one key difference no models. This app doesn't connect directly to any database. All of the data is being fetched remotely from the GitHub GraphQL API. Instead of declaring "resource models", data queries are declared right along side their usage in controllers and views. This allows an efficient single to be constructed rather than numerous REST requests to render a single view.
 
