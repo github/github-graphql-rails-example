@@ -1,10 +1,10 @@
 class RepositoriesController < ApplicationController
   # Define query for repository listing.
   #
-  # All queries MUST be assigned to constants and therefore be static defined.
-  # Queries MUST NOT be generated at request time.
+  # All queries MUST be assigned to constants and therefore be statically
+  # defined. Queries MUST NOT be generated at request time.
   IndexQuery = GitHub::Client.parse <<-'GRAPHQL'
-    # all read requests are defined in a "query" operation
+    # All read requests are defined in a "query" operation
     query {
       # viewer is the currently authenticted User
       viewer {
@@ -21,7 +21,7 @@ class RepositoriesController < ApplicationController
   # GET /repositories
   def index
     # Use query helper defined in ApplicationController to execute the query.
-    # query returns a GraphQL::Client::QueryResult instance with accessors
+    # `query` returns a GraphQL::Client::QueryResult instance with accessors
     # that map to the query structure.
     data = query IndexQuery
 
