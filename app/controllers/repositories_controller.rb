@@ -78,6 +78,32 @@ class RepositoriesController < ApplicationController
 
   # GET /repositories/ID
   def show
+    # Though we've only defined part of the ShowQuery in the controller, when
+    # query(ShowQuery) is executed, we're sending along the query as well as
+    # all of its fragment dependencies to the API server.
+    #
+    # Here's the raw query that's actually being sent.
+    #
+    # query RepositoriesController__ShowQuery($id: ID!) {
+    #   node(id: $id) {
+    #     ...Views__Repositories__Show__Repository
+    #   }
+    # }
+    #
+    # fragment Views__Repositories__Show__Repository on Repository {
+    #   id
+    #   owner {
+    #     login
+    #   }
+    #   name
+    #   description
+    #   homepageURL
+    #   ...Views__Repositories__Navigation__Repository
+    # }
+    #
+    # fragment Views__Repositories__Navigation__Repository on Repository {
+    #   hasIssuesEnabled
+    # }
     data = query ShowQuery, id: params[:id]
 
     if repository = data.node
