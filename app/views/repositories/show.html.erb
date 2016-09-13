@@ -4,8 +4,8 @@
   All data being used directly in this template should also be reflected
   statically in the fragment. And vice versa, all fields in the query fragment
   should only be used directly in this template. You MUST keep static queries
-  and runtime usage in sync. Defining but aspects in the same file makes
-  this easier to manage.
+  and runtime usage in sync. Defining queries in the same file makes
+  this aspect easier to manage.
 %>
 <%graphql
   # Fragments are parts of queries, they can't be executed themselves.
@@ -45,7 +45,7 @@
 
   The wrapper serves two primary roles:
 
-  1. Provides Ruby friendly snake case accessors for accessing the underly data
+  1. Provides Ruby friendly snake case accessors for accessing the underlying data
   2. Only expose fields explicitly defined by this fragment.
      `repository` is a full set of data, but fields included by the
      ...Views::Repositories::Navigation::Repository spread are hidden.
