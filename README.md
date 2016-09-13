@@ -15,7 +15,7 @@ Jump right into the code and read the inline documentation. The following is a s
 1. [app/controller/repositories_controller.rb](https://github.com/github/github-graphql-rails-example/blob/master/app/controllers/repositories_controller.rb) defines the top level GraphQL queries to fetch repository list and show pages.
 2. [app/views/repositories/index.html.erb](https://github.com/github/github-graphql-rails-example/blob/master/app/views/repositories/index.html.erb) shows the root template's listing query and composition over subviews.
 3. [app/views/repositories/_repositories.html.erb]( https://github.com/github/github-graphql-rails-example/blob/master/app/views/repositories/_repositories.html.erb) makes use of GraphQL connections to show the first couple items and a "load more" button.
-4. [app/views/repositories/show.html.erb][https://github.com/github/github-graphql-rails-example/blob/master/app/views/repositories/show.html.erb] shows the root template for the repository show page.
+4. [app/views/repositories/show.html.erb](https://github.com/github/github-graphql-rails-example/blob/master/app/views/repositories/show.html.erb) shows the root template for the repository show page.
 5.  [app/controller/application_controller.rb](https://github.com/github/github-graphql-rails-example/blob/master/app/controllers/application_controller.rb) defines controller helpers for executing GraphQL query requests.
 6. [config/application.rb](https://github.com/github/github-graphql-rails-example/blob/master/config/application.rb) configures `GraphQL::Client` to point to the GitHub GraphQL endpoint.
 
