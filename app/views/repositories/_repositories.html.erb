@@ -12,7 +12,7 @@
         ...Views::Repositories::ListItem::Repository
       }
 
-      # Cursor is an opaque identifier that lets use fetch items before or
+      # Cursor is an opaque identifier that lets you fetch items before or
       # after this repository in this collection. To fetch the next 10 items,
       # we'll want the last item's cursor.
       cursor
@@ -28,8 +28,8 @@
 <% repositories = Views::Repositories::Repositories::RepositoryConnection.new(repositories) %>
 
 <%#
-  We could enumerate repositories.edges.each { |edge| edge.node }, but each_node
-  provides a handy enumerator to get each repository.
+  We could enumerate this list by repositories.edges.each { |edge| edge.node }
+  but each_node provides a handy enumerator to get each repository.
 %>
 <% repositories.each_node do |repository| %>
   <%= render "repositories/list_item", repository: repository %>
