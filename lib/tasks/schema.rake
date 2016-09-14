@@ -6,8 +6,6 @@ namespace :schema do
   # before even sending a request.
   desc "Update GitHub GraphQL schema"
   task :update do
-    File.open("db/schema.json", 'w') do |f|
-      GraphQL::Client.dump_schema(GitHub::HTTPAdapter, f)
-    end
+    GraphQL::Client.dump_schema(GitHub::HTTPAdapter, "db/schema.json")
   end
 end
