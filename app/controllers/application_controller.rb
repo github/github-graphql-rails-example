@@ -27,15 +27,9 @@ class ApplicationController < ActionController::Base
     # Public: Useful helper method for tracking GraphQL context data to pass
     # along to the network adapter.
     def client_context
-      unless access_token = GitHub::Application.secrets.github_access_token
-        # $ GITHUB_ACCESS_TOKEN=abc123 bin/rails server
-        #   https://help.github.com/articles/creating-an-access-token-for-command-line-use
-        fail "Missing GitHub access token"
-      end
-
       # Use static access token from environment. However, here we have access
       # to the current request so we could configure the token to be retrieved
       # from a session cookie.
-      { access_token: access_token }
+      { access_token: GitHub::Application.secrets.github_access_token }
     end
 end

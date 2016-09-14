@@ -14,7 +14,12 @@ module GitHub
 
   HTTPAdapter = GraphQL::Client::HTTP.new("https://api.github.com/graphql") do
     def headers(context)
-      token = context[:access_token] || Application.secrets.github_access_token
+      unless token = context[:access_token] || Application.secrets.github_access_token
+        # $ GITHUB_ACCESS_TOKEN=abc123 bin/rails server
+        #   https://help.github.com/articles/creating-an-access-token-for-command-line-use
+        fail "Missing GitHub access token"
+      end
+
       {
         "Authorization" => "Bearer #{token}"
       }
