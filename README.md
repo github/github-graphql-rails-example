@@ -25,7 +25,7 @@ First, you'll need a [GitHub API access token](https://help.github.com/articles/
 $ git clone https://github.com/github/github-graphql-rails-example
 $ cd github-graphql-rails-example/
 $ bundle install
-$ GITHUB_ACCESS_TOKEN=abc123 bin/rails s
+$ GITHUB_ACCESS_TOKEN=abc123 bin/rails server
 ```
 
 And visit [http://localhost:3000/](http://localhost:3000/).
