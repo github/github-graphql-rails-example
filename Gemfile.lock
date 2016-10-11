@@ -44,10 +44,10 @@ GEM
     erubis (2.7.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    graphql (0.18.11)
-    graphql-client (0.1.0)
+    graphql (0.19.2)
+    graphql-client (0.2.1)
       activesupport (>= 3.0, < 6.0)
-      graphql (~> 0.18)
+      graphql (~> 0.19, >= 0.19.2)
     i18n (0.7.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
@@ -58,7 +58,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
-    minitest (5.9.0)
+    minitest (5.9.1)
     nio4r (1.2.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -110,8 +110,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  graphql (= 0.18.11)
-  graphql-client (= 0.1.0)
+  graphql-client (= 0.2.1)
   rails (~> 5.0.0)
 
 BUNDLED WITH

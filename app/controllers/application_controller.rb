@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  class QueryError < StandardError; end
+
   private
     # Public: Define request scoped helper method for making GraphQL queries.
     #
@@ -16,11 +18,10 @@ class ApplicationController < ActionController::Base
     def query(definition, variables = {})
       response = GitHub::Client.query(definition, variables: variables, context: client_context)
 
-      case response
-      when GraphQL::Client::SuccessfulResponse
+      if response.errors.any?
+        raise QueryError.new(response.errors[:data].join(", "))
+      else
         response.data
-      when GraphQL::Client::FailedResponse
-        raise response.errors
       end
     end
 
