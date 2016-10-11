@@ -6,7 +6,7 @@ class RepositoriesController < ApplicationController
   IndexQuery = GitHub::Client.parse <<-'GRAPHQL'
     # All read requests are defined in a "query" operation
     query {
-      # viewer is the currently authenticted User
+      # viewer is the currently authenticated User
       viewer {
         # "...FooConstant" is the fragment spread syntax to include the index
         # view's fragment.
