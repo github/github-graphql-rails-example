@@ -44,10 +44,10 @@ GEM
     erubis (2.7.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    graphql (0.19.4)
-    graphql-client (0.2.1)
+    graphql (1.2.2)
+    graphql-client (0.2.3)
       activesupport (>= 3.0, < 6.0)
-      graphql (~> 0.19, >= 0.19.2)
+      graphql (>= 0.19.2)
     i18n (0.7.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
@@ -108,7 +108,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  graphql-client (= 0.2.1)
+  graphql (= 1.2.2)
+  graphql-client (= 0.2.3)
   rails (~> 5.0.0)
 
 BUNDLED WITH
