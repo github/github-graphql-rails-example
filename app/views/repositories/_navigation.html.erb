@@ -1,13 +1,12 @@
 <%graphql
   fragment Repository on Repository {
     hasIssuesEnabled
-    # TODO: These aren't available yet
-    # issues {
-    #   totalCount
-    # }
-    # pullRequests {
-    #   totalCount
-    # }
+    issues {
+      totalCount
+    }
+    pullRequests {
+      totalCount
+    }
   }
 %>
 <% repository = Views::Repositories::Navigation::Repository.new(repository) %>
@@ -25,7 +24,7 @@
       <a href="#">
         <span class="octicon octicon-issue-opened"></span>
         Issues
-        <span class="badge">0</span> <%# TODO: repository.issues.total_count %>
+        <span class="badge"><%= repository.issues.total_count %></span>
       </a>
     </li>
   <% end %>
@@ -33,7 +32,7 @@
     <a href="#">
       <span class="octicon octicon-git-pull-request"></span>
       Pull requests
-      <span class="badge">0</span> <%# TODO: repository.pull_requests.total_count %>
+      <span class="badge"><%= repository.pull_requests.total_count %></span>
     </a>
   </li>
   <li role="presentation">
