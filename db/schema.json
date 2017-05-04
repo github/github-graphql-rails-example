@@ -521,7 +521,7 @@
           "description": "A user is an individual's account on GitHub that owns repositories and can make new content.",
           "fields": [
             {
-              "name": "avatarURL",
+              "name": "avatarUrl",
               "description": "A URL pointing to the user's public avatar.",
               "args": [
                 {
@@ -1315,7 +1315,7 @@
               "deprecationReason": null
             },
             {
-              "name": "websiteURL",
+              "name": "websiteUrl",
               "description": "A URL pointing to the user's public website/blog.",
               "args": [
 
@@ -1708,7 +1708,7 @@
               "deprecationReason": null
             },
             {
-              "name": "homepageURL",
+              "name": "homepageUrl",
               "description": "The repository's URL.",
               "args": [
 
@@ -2064,7 +2064,7 @@
               "deprecationReason": null
             },
             {
-              "name": "mirrorURL",
+              "name": "mirrorUrl",
               "description": "The repository's original mirror URL.",
               "args": [
 
@@ -4525,7 +4525,7 @@
               "deprecationReason": null
             },
             {
-              "name": "targetURL",
+              "name": "targetUrl",
               "description": "The URL for this status context.",
               "args": [
 
@@ -4556,7 +4556,7 @@
           "description": "Represents an OAuth application",
           "fields": [
             {
-              "name": "logoURL",
+              "name": "logoUrl",
               "description": "A URL pointing to the application's logo.",
               "args": [
                 {
@@ -8049,7 +8049,7 @@
           "description": "An account on GitHub, with one or more owners, that has repositories, members and teams.",
           "fields": [
             {
-              "name": "avatarURL",
+              "name": "avatarUrl",
               "description": "A URL pointing to the org's public avatar.",
               "args": [
                 {
@@ -8366,7 +8366,7 @@
           "description": "Represents an owner of a Repository.",
           "fields": [
             {
-              "name": "avatarURL",
+              "name": "avatarUrl",
               "description": "A URL pointing to the owner's public avatar.",
               "args": [
 
@@ -13413,7 +13413,7 @@
               "deprecationReason": null
             },
             {
-              "name": "homepageURL",
+              "name": "homepageUrl",
               "description": "The repository's URL.",
               "args": [
 
@@ -13513,7 +13513,7 @@
               "deprecationReason": null
             },
             {
-              "name": "mirrorURL",
+              "name": "mirrorUrl",
               "description": "The repository's original mirror URL.",
               "args": [
 
@@ -17728,7 +17728,7 @@
               "deprecationReason": null
             },
             {
-              "name": "homepageURL",
+              "name": "homepageUrl",
               "description": "The repository's URL.",
               "args": [
 
@@ -17828,7 +17828,7 @@
               "deprecationReason": null
             },
             {
-              "name": "mirrorURL",
+              "name": "mirrorUrl",
               "description": "The repository's original mirror URL.",
               "args": [
 

@@ -97,7 +97,7 @@ class RepositoriesController < ApplicationController
     #   }
     #   name
     #   description
-    #   homepageURL
+    #   homepageUrl
     #   ...Views__Repositories__Navigation__Repository
     # }
     #
