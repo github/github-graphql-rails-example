@@ -57,13 +57,13 @@
 <div class="header clearfix">
   <%= render "repositories/navigation", repository: repository %>
 
-  <h3 class="text-muted" style="display: inline-block">
+  <h3 class="text-muted inline-block">
     <a href="<%= repositories_path %>"><%= repository.owner.login %></a>
     /
     <a href="<%= repository_path(repository.id) %>"><%= repository.name %></a>
   </h3>
 
-  <div style="display: inline-block; margin-top: 3px; margin-left: 10px;">
+  <div class="inline-block star-badge-header">
     <%= render "repositories/star", repository: repository %>
   </div>
 </div>

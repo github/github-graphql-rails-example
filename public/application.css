@@ -3,6 +3,10 @@ body {
   padding-bottom: 20px;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 .header {
   margin-top: 0;
   margin-bottom: 0;
@@ -27,6 +31,11 @@ body {
   color: #777;
 }
 
+.star-badge-header {
+  margin-left: 10px;
+  vertical-align: text-bottom;
+}
+
 .star-badge .octicon {
   color: #777;
 }
@@ -42,6 +51,8 @@ body {
 .star-form button {
   background: transparent;
   border: none;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-pills .badge {
