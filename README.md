@@ -35,3 +35,4 @@ And visit [http://localhost:3000/](http://localhost:3000/).
 * [Facebook's GraphQL homepage](http://graphql.org/)
 * [GitHub's GraphQL API Early Access program](https://developer.github.com/early-access/graphql)
 * [Ruby GraphQL Client library](https://github.com/github/graphql-client)
+* [Relay Modern example](https://github.com/github/github-graphql-relay-example)
