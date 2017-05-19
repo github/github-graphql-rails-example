@@ -27,6 +27,15 @@ body {
   color: #777;
 }
 
+.star-badge .octicon {
+  margin-left: 3px;
+  color: #777;
+}
+
+.star-badge .highlight {
+  color: #e36209;
+}
+
 .nav-pills .badge {
   background-color: #ccc;
 }

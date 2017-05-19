@@ -9,16 +9,13 @@
       totalCount
     }
     ...Views::Repositories::Icon::Repository
+    ...Views::Repositories::Star::Repository
   }
 %>
 <% repository = Views::Repositories::ListItem::Repository.new(repository) %>
 
 <li class="list-group-item">
-  <span class="star-badge">
-    <%= repository.stargazers.total_count %>
-    <span class="octicon octicon-star"></span>
-  </span>
-
+  <%= render "repositories/star", repository: repository %>
   <%= render "repositories/icon", repository: repository %>
 
   <a href="<%= repository_path(repository.id) %>">

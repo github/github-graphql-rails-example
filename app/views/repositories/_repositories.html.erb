@@ -37,7 +37,7 @@
 
 <% if repositories.page_info.has_next_page? %>
   <li class="list-group-item show-more">
-    <a onclick="loadMoreRepositories(event);" href="<%= more_repositories_path(after: repositories.edges.last.cursor) %>">
+    <a class="js-load-more" href="<%= more_repositories_path(after: repositories.edges.last.cursor) %>">
       Show more repositories...
     </a>
     <span class="octicon octicon-sync spinner"></span>
