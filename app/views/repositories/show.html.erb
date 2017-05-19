@@ -34,6 +34,8 @@
 
     # Include repositories/_navigation.html.erb data dependencies
     ...Views::Repositories::Navigation::Repository
+
+    ...Views::Repositories::Star::Repository
   }
 %>
 <%#
@@ -55,11 +57,15 @@
 <div class="header clearfix">
   <%= render "repositories/navigation", repository: repository %>
 
-  <h3 class="text-muted">
+  <h3 class="text-muted" style="display: inline-block">
     <a href="<%= repositories_path %>"><%= repository.owner.login %></a>
     /
     <a href="<%= repository_path(repository.id) %>"><%= repository.name %></a>
   </h3>
+
+  <div style="display: inline-block; margin-top: 3px; margin-left: 10px;">
+    <%= render "repositories/star", repository: repository %>
+  </div>
 </div>
 
 <hr>
