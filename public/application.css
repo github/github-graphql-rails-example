@@ -28,12 +28,20 @@ body {
 }
 
 .star-badge .octicon {
-  margin-left: 3px;
   color: #777;
 }
 
 .star-badge .highlight {
   color: #e36209;
+}
+
+.star-form {
+  display: inline;
+}
+
+.star-form button {
+  background: transparent;
+  border: none;
 }
 
 .nav-pills .badge {

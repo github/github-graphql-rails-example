@@ -1,19 +1,17 @@
-function loadMoreRepositories(event) {
-  var container = event.target.parentElement;
+function loadMoreRepositories(link) {
+  var container = link.parentElement;
   container.classList.add('loading');
 
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', event.target.href, true);
-  xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-  xhr.onload = function() {
-    container.insertAdjacentHTML('afterend', xhr.responseText);
-    container.remove();
-  }
-  xhr.send();
+  fetch(link.href).then(function(response) {
+    response.text().then(function(text) {
+      container.insertAdjacentHTML('afterend', text);
+      container.remove();
+    })
+  })
 }
 
 function toggleStar(el) {
-  fetch(el.href, { method: 'PUT' }).then(function(response) {
+  fetch(el.action, { method: 'PUT', headers: { 'X-Requested-With': 'XMLHttpRequest' } }).then(function(response) {
     response.text().then(function(text) {
       // Parse text to get an actual element
       var div = document.createElement('div')
@@ -26,17 +24,17 @@ function toggleStar(el) {
   })
 }
 
+document.addEventListener('submit', function(e) {
+  var form = e.target
+  toggleStar(form)
+  e.preventDefault()
+})
+
 // Basic event delegation
 document.addEventListener('click', function(e) {
-  var toggleLink = e.target.closest('.js-toggle-star')
-  if (toggleLink) {
-    toggleStar(toggleLink)
-    e.preventDefault()
-  }
-
   var loadMoreLink = e.target.closest('.js-load-more')
   if (loadMoreLink) {
-    loadMoreRepositories(e)
+    loadMoreRepositories(loadMoreLink)
     e.preventDefault()
   }
 })
