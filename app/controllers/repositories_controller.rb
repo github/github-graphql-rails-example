@@ -129,7 +129,7 @@ class RepositoriesController < ApplicationController
   GRAPHQL
 
   def star
-    data = query StarMutation, id: CGI.unescape(params[:id])
+    data = query StarMutation, id: params[:id]
 
     if repository = data.star.starrable
       render partial: "repositories/star", locals: {
@@ -151,7 +151,7 @@ class RepositoriesController < ApplicationController
   GRAPHQL
 
   def unstar
-    data = query UnstarMutation, id: CGI.unescape(params[:id])
+    data = query UnstarMutation, id: params[:id]
 
     if repository = data.unstar.starrable
       render partial: "repositories/star", locals: {
