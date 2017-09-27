@@ -4,7 +4,7 @@ Demonstrates how to use the [`graphql-client`](http://github.com/github/graphql-
 
 <img width="365" src="https://cloud.githubusercontent.com/assets/137/18425026/a9929d7a-78f0-11e6-9fd4-f478470ad10b.png">
 
-The application structure is setup like a typical Rails app using controllers, views and routes with one key difference, no models. This app doesn't connect directly to any database. All the data is being fetched remotely from the GitHub GraphQL API. Instead of declaring resource models, data queries are declared right along side their usage in controllers and views. This allows an efficient single to be constructed rather than making numerous REST requests to render a single view.
+The application structure is setup like a typical Rails app using controllers, views and routes with one key difference, no models. This app doesn't connect directly to any database. All the data is being fetched remotely from the GitHub GraphQL API. Instead of declaring resource models, data queries are declared right along side their usage in controllers and views. This allows an efficient single request to be constructed rather than making numerous REST requests to render a single view.
 
 ## Table of Contents
 
