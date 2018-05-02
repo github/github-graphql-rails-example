@@ -117,4 +117,60 @@ class RepositoriesController < ApplicationController
       head :not_found
     end
   end
+
+  StarMutation = GitHub::Client.parse <<-'GRAPHQL'
+    mutation($id: ID!) {
+      star(input: { starrableId: $id }) {
+        starrable {
+          ...Views::Repositories::Star::Repository
+        }
+      }
+    }
+  GRAPHQL
+
+  def star
+    data = query StarMutation, id: params[:id]
+
+    if repository = data.star
+      respond_to do |format|
+        format.js {
+          render partial: "repositories/star", locals: { repository: data.star.starrable }
+        }
+
+        format.html {
+          redirect_to "/repositories"
+        }
+      end
+    else
+      head :not_found
+    end
+  end
+
+  UnstarMutation = GitHub::Client.parse <<-'GRAPHQL'
+    mutation($id: ID!) {
+      unstar(input: { starrableId: $id }) {
+        starrable {
+          ...Views::Repositories::Star::Repository
+        }
+      }
+    }
+  GRAPHQL
+
+  def unstar
+    data = query UnstarMutation, id: params[:id]
+
+    if repository = data.unstar
+      respond_to do |format|
+        format.js {
+          render partial: "repositories/star", locals: { repository: data.unstar.starrable }
+        }
+
+        format.html {
+          redirect_to "/repositories"
+        }
+      end
+    else
+      head :not_found
+    end
+  end
 end

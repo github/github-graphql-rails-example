@@ -1,0 +1,19 @@
+<%graphql
+  fragment Repository on Repository {
+    id
+    viewerHasStarred
+    stargazers {
+      totalCount
+    }
+  }
+%>
+<% repository = Views::Repositories::Star::Repository.new(repository) %>
+
+<span class="star-badge">
+  <%= repository.stargazers.total_count %>
+  <%= form_tag repository.viewer_has_starred? ? unstar_repository_path(repository.id) : star_repository_path(repository.id), method: :put, class: "star-form" do %>
+    <button>
+      <span class="octicon octicon-star <% if repository.viewer_has_starred? %>highlight<% end %>"></span>
+    </button>
+  <% end %>
+</span>
