@@ -1,2 +1,33 @@
+*.rbc
+capybara-*.html
+.rspec
 /log
 /tmp
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/public/system
+/coverage/
+/spec/tmp
+*.orig
+rerun.txt
+pickle-email-*.html
+
+# Ignore Byebug command history file.
+.byebug_history
+
+# Ignore precompiled javascript packs
+/public/packs
+/public/packs-test
+/public/assets
+
+# Ignore uploaded files in development
+/storage/*
+!/storage/.keep
+
+# Editors
+*.sublime-workspace
+*.sublime-project
+.idea
+.vscode
+
+.DS_Store
